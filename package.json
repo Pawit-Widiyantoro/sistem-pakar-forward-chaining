@@ -1,0 +1,19 @@
+{
+  "name": "sispak",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "datatables.net": "^2.0.7",
+    "datatables.net-dt": "^2.0.7"
+  }
+}
