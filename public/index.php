@@ -7,14 +7,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script> <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script> <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script> -->
+    <!-- <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" href="../node_modules/chosen-js/chosen.min.css">
+    
+    <style>
+        /* Additional styles to ensure Chosen elements fit well with Tailwind */
+        .chosen-container .chosen-single {
+            height: calc(2.5rem + 2px); /* Adjust height to match the input */
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* match Tailwind rounded-md */
+            border-color: #d1d5db; /* match Tailwind border-gray-300 */
+            background: #ffffff !important; /* solid background color */
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .chosen-container .chosen-single div b {
+            top: 50%; /* vertically center the arrow */
+        }
+        .chosen-container-active .chosen-single {
+            border-color: #3b82f6; /* match Tailwind focus:border-indigo-500 */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* match Tailwind focus:ring-indigo-500 */
+        }
+        .chosen-container .chosen-drop {
+            border-color: #d1d5db; /* match Tailwind border-gray-300 */
+            border-radius: 0.375rem; /* match Tailwind rounded-md */
+            background: #ffffff !important; /* solid background color */
+        }
+        .chosen-container .chosen-results {
+            background: #ffffff !important; /* solid background color */
+        }
+    </style>
     <link rel="stylesheet" href="../src/output.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../node_modules/datatables.net/js/dataTables.dataTables.min.js"></script>
-
     <title>Homepage</title>
 </head>
 <body>
@@ -27,22 +52,6 @@
               <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
                 <span class="absolute -inset-0.5"></span>
                 <span class="sr-only">Open main menu</span>
-                <!--
-                  Icon when menu is closed.
-      
-                  Menu open: "hidden", Menu closed: "block"
-                -->
-                <!-- <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg> -->
-                <!--
-                  Icon when menu is open.
-      
-                  Menu open: "block", Menu closed: "hidden"
-                -->
-                <!-- <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg> -->
               </button>
             </div>
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -51,8 +60,8 @@
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                   <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                   <a href="?page=gejala" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Gejala</a>
-                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Penyakit</a>
-                  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Basis Aturan</a>
+                  <a href="?page=penyakit" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Penyakit</a>
+                  <a href="?page=aturan" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Basis Aturan</a>
                   <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Konsultasi</a>
                   <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Logout</a>
                 </div>
@@ -115,7 +124,7 @@
 
         if($page==""){
             include "homepage.php";
-        } elseif ($page="gejala") {
+        } elseif ($page=="gejala") {
             if($action==""){
                 include "tampil_gejala.php";
             } else if ($action=="insert"){
@@ -125,17 +134,40 @@
             } else {
                 include "hapus_gejala.php";
             }
-        } else {
+        } elseif ($page=="penyakit") {
+            if($action==""){
+                include "tampil_penyakit.php";
+            } else if ($action=="insert"){
+                include "tambah_penyakit.php";
+            } else if ($action=="update"){
+                include "edit_penyakit.php";
+            } else {
+                include "hapus_penyakit.php";
+            }
+        } elseif ($page=="aturan") {
+            if($action==""){
+                include "tampil_aturan.php";
+            } else if ($action=="insert"){
+                include "tambah_aturan.php";
+            } else if ($action=="update"){
+                include "edit_aturan.php";
+            } else {
+                include "hapus_aturan.php";
+            }
+        }   
+        else {
             include "nama halaman";
         }
         ?>
       </div>
 </body>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/chosen-js/chosen.jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-      $('table').DataTable();
+        $('.chosen').chosen();
     });
-  </script>
+</script>
 </html>
 <?php
 ob_end_flush(); // End output buffering and flush the output
