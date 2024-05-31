@@ -37,7 +37,7 @@
                 
                 <td class="px-6 py-4 text-sm text-center">
                     <a href="?page=aturan&action=detail&id=<?= $row['id_aturan'];?>">
-                        <button class="bg-blue-500 text-white w-16 h-8 rounded hover:bg-yellow-700">
+                        <button class="bg-blue-500 text-white w-16 h-8 rounded hover:bg-blue-700">
                             Detail
                         </button>
                     </a>

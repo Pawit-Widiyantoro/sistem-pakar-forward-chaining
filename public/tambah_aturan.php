@@ -109,12 +109,12 @@
             </div>
             <!-- end gejala -->
             <div class="flex items-center justify-between">
-                <input type="submit" name="simpan" value="Simpan" class="bg-green-500 text-white w-20 h-8 rounded hover:bg-green-700">
                 <a href="?page=aturan">
                     <button type="button" class="bg-red-500 text-white w-20 h-8 rounded hover:bg-red-700">
                         Batal
                     </button>
                 </a>
+                <input type="submit" name="simpan" value="Simpan" class="bg-green-500 text-white w-20 h-8 rounded hover:bg-green-700">
             </div>
         </form>
     </div>

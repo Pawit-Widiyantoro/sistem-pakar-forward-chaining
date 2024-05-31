@@ -147,6 +147,8 @@
         } elseif ($page=="aturan") {
             if($action==""){
                 include "tampil_aturan.php";
+            } else if ($action=="detail"){
+                include ('detail_aturan.php');
             } else if ($action=="insert"){
                 include "tambah_aturan.php";
             } else if ($action=="update"){
