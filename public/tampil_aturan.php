@@ -46,7 +46,7 @@
                             Edit
                         </button>
                     </a>
-                    <a href="?page=aturant&action=delete&id=<?= $row['id_aturan'];?>">
+                    <a href="?page=aturan&action=delete&id=<?= $row['id_aturan'];?>">
                         <button onclick="return confirm('Yakin ingin menghapus penyakit ini?')" class="bg-red-500 text-white w-16 h-8 rounded hover:bg-red-700">
                             Hapus
                         </button>

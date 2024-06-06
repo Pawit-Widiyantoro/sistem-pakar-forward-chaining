@@ -153,7 +153,9 @@
                 include "tambah_aturan.php";
             } else if ($action=="update"){
                 include "edit_aturan.php";
-            } else {
+            } else if ($action=="delete_gejala"){
+                include "hapus_detail_aturan.php";
+            }else {
                 include "hapus_aturan.php";
             }
         }   
