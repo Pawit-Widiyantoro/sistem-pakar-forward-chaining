@@ -5,7 +5,6 @@
         $nama_gejala = $_POST['gejala'];
 
         $sql = "INSERT INTO gejala VALUES(NULL,'$nama_gejala')";
-        $result = $conn->query($sql);
         if($conn->query($sql) === TRUE){
             header("Location: ?page=gejala");
             exit(); // Ensure you exit after the header redirect

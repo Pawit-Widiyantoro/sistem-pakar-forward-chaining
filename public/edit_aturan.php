@@ -34,7 +34,7 @@
         <form action="" method="post">
             <!-- penyakit -->
             <div class="mb-4">
-                <label for="penyakit" class="block text-sm font-medium text-gray-700">Nama penyakit</label>
+                <label for="penyakit" class="block text-sm font-medium text-gray-700">Kebutuhan Nutrisi</label>
                 <input type="text" name="gejala" id="gejala" value="<?= $row['nama_penyakit']; ?>" readonly
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
@@ -72,7 +72,7 @@
                             <td class="px-6 py-4 text-sm text-gray-500"><?= $row['nama_gejala']; ?></td>
                             <td class="px-6 py-4 text-sm text-gray-500 text-right">
                                 <a href="?page=aturan&action=delete_gejala&id_aturan=<?= $id_aturan ?>&id_gejala=<?= $id_gejala ?>">
-                                    <button onclick="return confirm('Yakin ingin menghapus gejala ini?')" class="bg-red-500 text-white w-16 h-8 rounded hover:bg-red-700">
+                                    <button type="button" onclick="return confirm('Yakin ingin menghapus gejala ini?')" class="bg-red-500 text-white w-16 h-8 rounded hover:bg-red-700">
                                         Hapus
                                     </button>
                                 </a>
@@ -88,7 +88,7 @@
                                 <td class="px-6 py-4 text-sm text-gray-500"><?= $no++; ?></td>
                                 <td class="px-6 py-4 text-sm text-gray-500"><?= $row['nama_gejala']; ?></td>
                                 <td class="px-6 py-4 text-sm text-gray-500 text-right">
-                                    <button class="bg-slate-500 text-white w-16 h-8 rounded hover:bg-slate-700">
+                                    <button class="bg-slate-500 text-white w-16 h-8 rounded">
                                         Hapus
                                     </button>
                                 </td>

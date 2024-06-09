@@ -1,9 +1,9 @@
 <div class="container mx-auto px-10 py-5">
-    <h2 class="text-2xl font-semibold mb-4">Data Penyakit</h2>
+    <h2 class="text-2xl font-semibold mb-4">Data Nutrisi</h2>
     <div class="mb-4">
         <a href="?page=penyakit&action=insert">
             <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
-                Tambah Penyakit
+                Tambah Nutrisi
             </button>
         </a>
     </div>
@@ -12,7 +12,7 @@
         <thead class="bg-gray-100">
           <tr>
             <th class="px-6 py-2 text-xs text-gray-500 w-5">No.</th>
-            <th class="px-6 py-2 text-xs text-gray-500">Nama Penyakit</th>
+            <th class="px-6 py-2 text-xs text-gray-500">Kebutuhan Nutrisi</th>
             <th class="px-6 py-2 text-xs text-gray-500">Keterangan</th>
             <th class="px-6 py-2 text-xs text-gray-500">Solusi</th>
             <th class="px-6 py-2 text-xs text-gray-500">Actions</th>
@@ -51,7 +51,6 @@
                 }
                 $conn->close();
             ?>
-        <!-- More rows as needed -->
         </tbody>
       </table>
     </div>

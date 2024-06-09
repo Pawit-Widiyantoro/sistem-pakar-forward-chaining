@@ -60,7 +60,7 @@
         <form action="" method="post" name="form" onsubmit="return validateForm()">
             <!-- penyakit -->
             <div class="mb-4">
-                <label for="penyakit" class="block text-sm font-medium text-gray-700">Nama penyakit</label>
+                <label for="penyakit" class="block text-sm font-medium text-gray-700">Kebutuhan Nutrisi</label>
                 <select name="nama_penyakit" data-placeholder="Pilih nama penyakit" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm chosen">
                 <option value="" class=""></option>
                 <?php
